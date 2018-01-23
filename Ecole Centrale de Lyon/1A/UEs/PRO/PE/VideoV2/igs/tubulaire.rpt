@@ -1,0 +1,78 @@
+*****************************************************************
+      SolidWorks Corporation - Compte-rendu d'état du Processeur IGES
+*****************************************************************
+=================================================================
+Informations générales
+=================================================================
+Envoi de l'identification du produit système en cours  : CNEXT - IGES PRODUCT
+Réception de l'identification du produit système en cours: Tubulaire
+Nom de fichier                    : tubulaire.igs
+Envoi du système en cours               : IBM CATIA IGES - CATIA Version 5 Release 19 
+Version du préprocesseur         : CATIA Version 5 Release 19 
+Date de création du fichier           : 20171226.140326
+Date de création du modèle          : 20171226.140326
+Unités                        : MM
+Echelle de l'espace modèle            : 1
+Auteur                       : telep
+Organisation                 : PACO-PSI
+
+
+=================================================================
+Informations sur le traitement des entités
+=================================================================
+ERREUR:   DE#  4813, TYPE   120: Ne peut pas créer de surface en révolution.
+ERREUR:   DE#  4833, TYPE   120: Ne peut pas créer de surface en révolution.
+ERREUR:   DE#  4873, TYPE   120: Ne peut pas créer de surface en révolution.
+ERREUR:   DE#  4893, TYPE   120: Ne peut pas créer de surface en révolution.
+ERREUR:   DE#  9775, TYPE   120: Ne peut pas créer de surface en révolution.
+
+
+=================================================================
+Analyse de précision d'un fichier IGES:
+=================================================================
+  Nombre le plus répandu de chiffres significatifs:              10
+  Nombre le plus grand de chiffres significatifs:                     10
+  Nombre moyen de chiffres significatifs :                 9.8883
+  Distance maximale jusqu'à l'origine:                          1531.44
+  Distance minimale jusqu'à l'origine:                          1220.32
+  Nombre effectif de chiffres significatifs:              9.05331
+
+
+=================================================================
+Récapitulatif des entités
+=================================================================
+-----------------------------------------------------------------
+Nom de type                                         Nombre converti
+---- ----                                         ----- ---------
+100  Arc                                            986       986
+102  Composite curve                               1550      1550
+104  Conic arc                                        4         4
+108  Plane                                          173       173
+110  Line                                          3698      3698
+116  Point                                           42        42
+120  Surface of revolution                          875       875
+122  Tabulated cylinder                             112       112
+124  Transformation matrix                         1124      1124
+126  Rational B-spline curve                       4619      4619
+128  Rational B-spline surface                       70        70
+142  Curve on a parametric surface                 1463      1463
+144  Trimmed parametric surface                    1311      1301
+308  Subfigure definition                           126       125
+314  Color definition                                 1         1
+406  Property                                       241       241
+408  Singular subfigure instance                    134       134
+_________________________________________________________________
+
+
+=================================================================
+Récapitulatif des résultats
+=================================================================
+Type de fonction SolidWorks                Nombre
+-----------------------                -----
+Fonction(s) volumique(s)                       134
+Fonction(s) surfacique(s)                     56
+Fonction(s) de courbe/d'esquisse                0
+--------------------------------------------
+Heure de début: mardi, décembre 26, 2017 14:04:02
+Heure de fin: mardi, décembre 26, 2017 14:05:00
+Durée de traitement: 0 days, 00 hours, 00 mins, 58 secs

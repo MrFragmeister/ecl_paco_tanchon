@@ -1,0 +1,24 @@
+* C:\Users\telep\Documents\Documents\ECL\1A\UEs\STI\tc0\Elec\8_Multiplexeur\Multiplexeur.sch
+
+* Schematics Version 9.1 - Web Update 1
+* Mon Jan 22 08:52:45 2018
+
+
+
+** Analysis setup **
+.tran 1us 5ms 0 1us
+.OP 
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "C:\Program Files\OrCAD_Demo\PSpice\Library\eea.lib"
+.lib "nom.lib"
+
+.INC "Multiplexeur.net"
+.INC "Multiplexeur.als"
+
+
+.probe
+
+
+.END

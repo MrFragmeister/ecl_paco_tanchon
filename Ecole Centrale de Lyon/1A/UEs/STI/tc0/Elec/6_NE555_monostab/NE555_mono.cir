@@ -1,0 +1,24 @@
+* C:\Users\telep\Documents\Documents\ECL\1A\UEs\STI\tc0\Elec\6_NE555_monostab\NE555_mono.sch
+
+* Schematics Version 9.1 - Web Update 1
+* Sun Jan 21 15:51:51 2018
+
+
+
+** Analysis setup **
+.tran 1ns 50us 0 1ns
+.OP 
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "C:\Program Files\OrCAD_Demo\PSpice\Library\eea.lib"
+.lib "nom.lib"
+
+.INC "NE555_mono.net"
+.INC "NE555_mono.als"
+
+
+.probe
+
+
+.END

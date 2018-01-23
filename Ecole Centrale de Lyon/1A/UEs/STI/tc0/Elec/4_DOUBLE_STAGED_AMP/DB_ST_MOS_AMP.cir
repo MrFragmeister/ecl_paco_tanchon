@@ -1,0 +1,24 @@
+* C:\Users\telep\Documents\Documents\ECL\1A\UEs\STI\tc0\Elec\DB_ST_MOS_AMP.sch
+
+* Schematics Version 9.1 - Web Update 1
+* Sun Jan 21 11:02:00 2018
+
+
+
+** Analysis setup **
+.DC LIN V_V1 0 3 0.01 
+.OP 
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "C:\Program Files\OrCAD_Demo\PSpice\Library\eea.lib"
+.lib "nom.lib"
+
+.INC "DB_ST_MOS_AMP.net"
+.INC "DB_ST_MOS_AMP.als"
+
+
+.probe
+
+
+.END

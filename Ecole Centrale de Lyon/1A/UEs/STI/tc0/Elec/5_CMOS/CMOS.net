@@ -1,0 +1,13 @@
+* Schematics Netlist *
+
+
+
+V_VDD         $N_0001 0 2.5V
+V_VIN         vin 0 DC 1V AC 1V
++SIN 1.25V 1V 1k 0 0 0
+M_M2         vout vin $N_0001 $N_0001 PMOS5  
++ L=0.25um  
++ W=7.6um         
+M_M1         vout vin 0 0 NMOS5  
++ L=0.25um  
++ W=3um         

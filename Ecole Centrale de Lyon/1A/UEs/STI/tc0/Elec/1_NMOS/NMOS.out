@@ -1,0 +1,135 @@
+
+**** 01/21/18 10:35:27 *********** Evaluation PSpice (Nov 1999) **************
+
+ * C:\Users\telep\Documents\Documents\ECL\1A\UEs\STI\tc0\Elec\1_NMOS\NMOS.sch
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+* Schematics Version 9.1 - Web Update 1
+* Sun Jan 21 10:35:27 2018
+
+
+
+** Analysis setup **
+.DC LIN V_V1 0V 3V 0.01V 
+.STEP LIN V_V2 0 3 0.5 
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "C:\Program Files\OrCAD_Demo\PSpice\Library\eea.lib"
+.lib "nom.lib"
+
+.INC "NMOS.net"
+
+**** INCLUDING NMOS.net ****
+* Schematics Netlist *
+
+
+
+V_V1         vds 0 2.5V
+V_V2         vgs 0 2V
+M_M2         vds vgs 0 0 NMOS5  
++ L=0.25um  
++ W=1um         
+
+**** RESUMING NMOS.cir ****
+.INC "NMOS.als"
+
+
+
+**** INCLUDING NMOS.als ****
+* Schematics Aliases *
+
+.ALIASES
+V_V1            V1(+=vds -=0 )
+V_V2            V2(+=vgs -=0 )
+M_M2            M2(d=vds g=vgs s=0 s=0 )
+_    _(vds=vds)
+_    _(vgs=vgs)
+.ENDALIASES
+
+
+**** RESUMING NMOS.cir ****
+.probe
+
+
+.END
+
+**** 01/21/18 10:35:27 *********** Evaluation PSpice (Nov 1999) **************
+
+ * C:\Users\telep\Documents\Documents\ECL\1A\UEs\STI\tc0\Elec\1_NMOS\NMOS.sch
+
+
+ ****     MOSFET MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               NMOS5           
+               NMOS            
+  T_Measured   27            
+   T_Current   27            
+       LEVEL    5            
+           L  250.000000E-09 
+           W   10.000000E-06 
+          LD  -80.000000E-09 
+          WD  -20.000000E-09 
+         VTO     .4          
+          KP  131.000000E-06 
+       GAMMA     .5          
+         PHI     .7          
+      LAMBDA     .1          
+         RSH  510            
+          IS   10.000000E-15 
+          JS   10.000000E-09 
+        JSSW  150.000000E-12 
+           N    1.5          
+          PB     .9          
+        PBSW     .5          
+          CJ  560.000000E-06 
+        CJSW  350.000000E-12 
+          MJ     .45         
+        MJSW     .2          
+        CGSO  150.000000E-12 
+        CGDO  400.000000E-12 
+        CGBO  400.000000E-12 
+         TOX  100.000000E-09 
+          XJ  150.000000E-09 
+       UCRIT    4.500000E+06 
+          KF    1.000000E-27 
+      DIOMOD    1            
+         VFB    0            
+        LETA     .28         
+        WETA     .05         
+          U0    0            
+        TEMP    0            
+         VDD    0            
+       XPART    0            
+         XTI    0            
+        HDIF  900.000000E-09 
+         COX    4.000000E-03 
+          E0   50.000000E+06 
+         IBA  200.000000E+06 
+         IBB  350.000000E+06 
+         TCV    1.500000E-03 
+        UCEX    1.7          
+        IBBT    0            
+          Q0  280.000000E-06 
+          LK  500.000000E-09 
+
+
+
+          JOB CONCLUDED
+
+          TOTAL JOB TIME             .06
+

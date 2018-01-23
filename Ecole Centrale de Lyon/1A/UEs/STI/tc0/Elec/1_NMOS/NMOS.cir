@@ -1,0 +1,24 @@
+* C:\Users\telep\Documents\Documents\ECL\1A\UEs\STI\tc0\Elec\1_NMOS\NMOS.sch
+
+* Schematics Version 9.1 - Web Update 1
+* Sun Jan 21 10:35:27 2018
+
+
+
+** Analysis setup **
+.DC LIN V_V1 0V 3V 0.01V 
+.STEP LIN V_V2 0 3 0.5 
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "C:\Program Files\OrCAD_Demo\PSpice\Library\eea.lib"
+.lib "nom.lib"
+
+.INC "NMOS.net"
+.INC "NMOS.als"
+
+
+.probe
+
+
+.END

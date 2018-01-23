@@ -1,0 +1,215 @@
+
+**** 01/21/18 11:02:00 *********** Evaluation PSpice (Nov 1999) **************
+
+ * C:\Users\telep\Documents\Documents\ECL\1A\UEs\STI\tc0\Elec\DB_ST_MOS_AMP.sch
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+* Schematics Version 9.1 - Web Update 1
+* Sun Jan 21 11:02:00 2018
+
+
+
+** Analysis setup **
+.DC LIN V_V1 0 3 0.01 
+.OP 
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "C:\Program Files\OrCAD_Demo\PSpice\Library\eea.lib"
+.lib "nom.lib"
+
+.INC "DB_ST_MOS_AMP.net"
+
+**** INCLUDING DB_ST_MOS_AMP.net ****
+* Schematics Netlist *
+
+
+
+R_R2         OUT_NMOS $N_0001  1k  
+R_R1         0 OUT_PMOS  3k  
+V_V2         $N_0001 0 2.5V
+M_M1         OUT_NMOS $N_0002 0 0 NMOS5           
+M_M2         OUT_PMOS OUT_NMOS $N_0001 $N_0001 PMOS5  
++ L=0.25um  
++ W=8.7um         
+V_V1         $N_0002 0 DC 0v AC 1V
++SIN 0V 200mV 2k 0 0 0
+
+**** RESUMING DB_ST_MOS_AMP.cir ****
+.INC "DB_ST_MOS_AMP.als"
+
+
+
+**** INCLUDING DB_ST_MOS_AMP.als ****
+* Schematics Aliases *
+
+.ALIASES
+R_R2            R2(1=OUT_NMOS 2=$N_0001 )
+R_R1            R1(1=0 2=OUT_PMOS )
+V_V2            V2(+=$N_0001 -=0 )
+M_M1            M1(d=OUT_NMOS g=$N_0002 s=0 s=0 )
+M_M2            M2(d=OUT_PMOS g=OUT_NMOS s=$N_0001 s=$N_0001 )
+V_V1            V1(+=$N_0002 -=0 )
+_    _(OUT_NMOS=OUT_NMOS)
+_    _(OUT_PMOS=OUT_PMOS)
+.ENDALIASES
+
+
+**** RESUMING DB_ST_MOS_AMP.cir ****
+.probe
+
+
+.END
+
+**** 01/21/18 11:02:00 *********** Evaluation PSpice (Nov 1999) **************
+
+ * C:\Users\telep\Documents\Documents\ECL\1A\UEs\STI\tc0\Elec\DB_ST_MOS_AMP.sch
+
+
+ ****     MOSFET MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               NMOS5           PMOS5           
+               NMOS            PMOS            
+  T_Measured   27              27            
+   T_Current   27              27            
+       LEVEL    5               5            
+           L  250.000000E-09  250.000000E-09 
+           W   10.000000E-06   10.000000E-06 
+          LD  -80.000000E-09  -90.000000E-09 
+          WD  -20.000000E-09  -30.000000E-09 
+         VTO     .4             -.55         
+          KP  131.000000E-06   45.000000E-06 
+       GAMMA     .5             0            
+         PHI     .7              .8          
+      LAMBDA     .1              .2          
+         RSH  510             990            
+          IS   10.000000E-15   10.000000E-15 
+          JS   10.000000E-09    5.000000E-09 
+        JSSW  150.000000E-12  700.000000E-12 
+           N    1.5             1.8          
+          PB     .9              .9          
+        PBSW     .5              .8          
+          CJ  560.000000E-06  940.000000E-06 
+        CJSW  350.000000E-12  320.000000E-12 
+          MJ     .45                         
+        MJSW     .2              .3          
+        CGSO  150.000000E-12  150.000000E-12 
+        CGDO  400.000000E-12  300.000000E-12 
+        CGBO  400.000000E-12  400.000000E-12 
+         TOX  100.000000E-09  100.000000E-09 
+          XJ  150.000000E-09  150.000000E-09 
+       UCRIT    4.500000E+06   18.000000E+06 
+          KF    1.000000E-27  100.000000E-30 
+      DIOMOD    1               1            
+         VFB    0               0            
+        LETA     .28             .45         
+        WETA     .05            0            
+          U0    0               0            
+        TEMP    0               0            
+         VDD    0               0            
+       XPART    0               0            
+         XTI    0               0            
+        HDIF  900.000000E-09  900.000000E-09 
+         COX    4.000000E-03    4.000000E-03 
+          E0   50.000000E+06   51.000000E+06 
+         IBA  200.000000E+06                 
+         IBB  350.000000E+06                 
+         TCV    1.500000E-03   -1.400000E-03 
+         BEX                   -1.4          
+        UCEX    1.7             2            
+        IBBT    0               0            
+          Q0  280.000000E-06  200.000000E-06 
+          LK  500.000000E-09  600.000000E-09 
+
+
+**** 01/21/18 11:02:00 *********** Evaluation PSpice (Nov 1999) **************
+
+ * C:\Users\telep\Documents\Documents\ECL\1A\UEs\STI\tc0\Elec\DB_ST_MOS_AMP.sch
+
+
+ ****     SMALL SIGNAL BIAS SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+($N_0001)    2.5000                   ($N_0002)    0.0000                       
+
+(OUT_NMOS)    2.5000                  (OUT_PMOS) 7.544E-09                  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V2        -3.947E-11
+    V_V1         0.000E+00
+
+    TOTAL POWER DISSIPATION   9.87E-11  WATTS
+
+
+**** 01/21/18 11:02:00 *********** Evaluation PSpice (Nov 1999) **************
+
+ * C:\Users\telep\Documents\Documents\ECL\1A\UEs\STI\tc0\Elec\DB_ST_MOS_AMP.sch
+
+
+ ****     OPERATING POINT INFORMATION      TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+
+
+
+**** MOSFETS
+
+
+NAME         M_M1        M_M2      
+MODEL        NMOS5       PMOS5     
+ID           3.70E-11   -2.51E-12 
+VGS          0.00E+00   -3.70E-08 
+VDS          2.50E+00   -2.50E+00 
+VBS          0.00E+00    0.00E+00 
+VTH          5.22E-01   -6.40E-01 
+VDSAT        1.04E-01   -1.03E-01 
+Lin0/Sat1    1.00E+00    1.00E+00 
+if           2.14E-06    1.72E-11 
+ir           0.00E+00    0.00E+00 
+TAU          4.96E-12    1.34E-11 
+GM           9.92E-10    2.36E-15 
+GDS          7.17E-12    1.34E-18 
+GMB          3.19E-10    9.43E-18 
+CBD          1.13E-14    1.20E-14 
+CBS          1.83E-14    2.14E-14 
+CGSOV        1.51E-15    1.31E-15 
+CGDOV        4.02E-15    2.63E-15 
+CGBOV        1.64E-16    1.72E-16 
+CGS         -8.99E-18   -1.35E-17 
+CGD         -2.40E-17   -2.70E-17 
+CGB          2.03E-15   -1.08E-16 
+
+          JOB CONCLUDED
+
+          TOTAL JOB TIME             .06
+

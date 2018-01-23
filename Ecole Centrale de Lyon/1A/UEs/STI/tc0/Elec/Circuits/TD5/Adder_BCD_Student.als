@@ -1,0 +1,47 @@
+* Schematics Aliases *
+
+.ALIASES
+X_U1            U1(C0=$N_0001 A1=A4 A2=A5 A3=A6 A4=A7 B1=B4 B2=B5 B3=B6 B4=B7
++  C4=$N_0002 SUM1=S10 SUM2=S11 SUM3=S12 SUM4=S13 PWR=$G_DPWR GND=$G_DGND )
+X_U17           U17(STROBEGbar=$D_LO 1A=$N_0003 1B=$N_0004 2A=$N_0005
++  2B=$N_0006 3A=$N_0007 3B=$N_0008 4A=$N_0009 4B=$N_0010 SELECTAbarB=$N_0001
++  1Y=S00 2Y=S01 3Y=S02 4Y=S03 PWR=$G_DPWR GND=$G_DGND )
+X_U19A          U19A(A=$N_0012 B=$N_0013 Y=$N_0001 PWR=$G_DPWR GND=$G_DGND )
+X_U3            U3(C0=$D_LO A1=$D_LO A2=$D_HI A3=$D_HI A4=$D_LO B1=$N_0003
++  B2=$N_0005 B3=$N_0007 B4=$N_0009 C4=$N_0012 SUM1=$N_0004 SUM2=$N_0006
++  SUM3=$N_0008 SUM4=$N_0010 PWR=$G_DPWR GND=$G_DGND )
+X_U2            U2(C0=$D_LO A1=A0 A2=A1 A3=A2 A4=A3 B1=B0 B2=B1 B3=B2 B4=B3
++  C4=$N_0013 SUM1=$N_0003 SUM2=$N_0005 SUM3=$N_0007 SUM4=$N_0009 PWR=$G_DPWR
++  GND=$G_DGND )
+U_DSTM5          DSTM5(PIN0=A7 PIN1=A6 PIN2=A5 PIN3=A4 PIN4=A3 PIN5=A2 PIN6=A1
++  PIN7=A0 )
+U_DSTM4          DSTM4(PIN0=B7 PIN1=B6 PIN2=B5 PIN3=B4 PIN4=B3 PIN5=B2 PIN6=B1
++  PIN7=B0 )
+_    _(A7=A7)
+_    _(A6=A6)
+_    _(A5=A5)
+_    _(A4=A4)
+_    _(B7=B7)
+_    _(B6=B6)
+_    _(B5=B5)
+_    _(B4=B4)
+_    _(S13=S13)
+_    _(S12=S12)
+_    _(S11=S11)
+_    _(S10=S10)
+_    _(S00=S00)
+_    _(S01=S01)
+_    _(S02=S02)
+_    _(S03=S03)
+_    _(A3=A3)
+_    _(A2=A2)
+_    _(A1=A1)
+_    _(A0=A0)
+_    _(B3=B3)
+_    _(B2=B2)
+_    _(B1=B1)
+_    _(B0=B0)
+_    _($G_DPWR=$G_DPWR)
+_    _($G_DGND=$G_DGND)
+.ENDALIASES
+

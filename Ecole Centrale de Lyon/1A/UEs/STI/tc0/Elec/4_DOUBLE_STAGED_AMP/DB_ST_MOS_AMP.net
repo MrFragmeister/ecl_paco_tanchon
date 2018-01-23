@@ -1,0 +1,13 @@
+* Schematics Netlist *
+
+
+
+R_R2         OUT_NMOS $N_0001  1k  
+R_R1         0 OUT_PMOS  3k  
+V_V2         $N_0001 0 2.5V
+M_M1         OUT_NMOS $N_0002 0 0 NMOS5           
+M_M2         OUT_PMOS OUT_NMOS $N_0001 $N_0001 PMOS5  
++ L=0.25um  
++ W=8.7um         
+V_V1         $N_0002 0 DC 0v AC 1V
++SIN 0V 200mV 2k 0 0 0

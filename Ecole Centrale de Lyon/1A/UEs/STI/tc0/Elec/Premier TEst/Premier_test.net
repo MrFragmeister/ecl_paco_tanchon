@@ -1,0 +1,7 @@
+* Schematics Netlist *
+
+
+
+C_C1         0 vout  1n  
+R_R1         vin vout  1k  
+V_V4         vin 0 DC 0V AC 1V 

@@ -1,0 +1,23 @@
+* C:\Users\telep\Documents\Documents\ECL\1A\UEs\STI\tc0\Premier_test.sch
+
+* Schematics Version 9.1 - Web Update 1
+* Fri Sep 15 16:20:06 2017
+
+
+
+** Analysis setup **
+.ac DEC 101 10 1meg
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "C:\Program Files\OrCAD_Demo\PSpice\Library\eea.lib"
+.lib "nom.lib"
+
+.INC "Premier_test.net"
+.INC "Premier_test.als"
+
+
+.probe
+
+
+.END

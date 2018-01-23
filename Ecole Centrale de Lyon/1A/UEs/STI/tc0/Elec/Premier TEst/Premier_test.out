@@ -1,0 +1,94 @@
+
+**** 09/15/17 16:20:06 *********** Evaluation PSpice (Nov 1999) **************
+
+ * C:\Users\telep\Documents\Documents\ECL\1A\UEs\STI\tc0\Premier_test.sch
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+* Schematics Version 9.1 - Web Update 1
+* Fri Sep 15 16:20:06 2017
+
+
+
+** Analysis setup **
+.ac DEC 101 10 1meg
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "C:\Program Files\OrCAD_Demo\PSpice\Library\eea.lib"
+.lib "nom.lib"
+
+.INC "Premier_test.net"
+
+**** INCLUDING Premier_test.net ****
+* Schematics Netlist *
+
+
+
+C_C1         0 vout  1n  
+R_R1         vin vout  1k  
+V_V4         vin 0 DC 0V AC 1V 
+
+**** RESUMING Premier_test.cir ****
+.INC "Premier_test.als"
+
+
+
+**** INCLUDING Premier_test.als ****
+* Schematics Aliases *
+
+.ALIASES
+C_C1            C1(1=0 2=vout )
+R_R1            R1(1=vin 2=vout )
+V_V4            V4(+=vin -=0 )
+_    _(vout=vout)
+_    _(vin=vin)
+.ENDALIASES
+
+
+**** RESUMING Premier_test.cir ****
+.probe
+
+
+.END
+
+**** 09/15/17 16:20:06 *********** Evaluation PSpice (Nov 1999) **************
+
+ * C:\Users\telep\Documents\Documents\ECL\1A\UEs\STI\tc0\Premier_test.sch
+
+
+ ****     SMALL SIGNAL BIAS SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  vin)    0.0000  ( vout)    0.0000  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V4         0.000E+00
+
+    TOTAL POWER DISSIPATION   0.00E+00  WATTS
+
+
+
+          JOB CONCLUDED
+
+          TOTAL JOB TIME             .03
+

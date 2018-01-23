@@ -1,0 +1,94 @@
+*version 9.1 1046576502
+@index
+symloc PMOS5 0 1040
+symloc NMOS5 1040 981
+*symbol PMOS5
+d p-channel mosfet (enhancement) device
+@type p 9.1
+@attributes
+a 1 sp 0 0 0 0 hln 100 TEMPLATE=M^@REFDES %d %g %s %s @MODEL ?L/ \n+ L=@L/ ?W/ \n+ W=@W/ ?AD/ \n+ AD=@AD/ ?AS/ \n+ AS=@AS/ ?PD/ \n+ PD=@PD/ ?PS/ \n+ PS=@PS/ ?NRD/ \n+ NRD=@NRD/ ?NRS/ \n+ NRS=@NRS/ ?NRG/ \n+ NRG=@NRG/ ?NRB/ \n+ NRB=@NRB/ ?M/ \n+ M=@M/
+a 0 sp 9 0 5 10 hln 100 REFDES=M?
+a 0 u 0 0 0 0 hln 100 L=
+a 0 u 0 0 0 0 hln 100 W=
+a 0 u 0 0 0 0 hln 100 AD=
+a 0 u 0 0 0 0 hln 100 AS=
+a 0 u 0 0 0 0 hln 100 PD=
+a 0 u 0 0 0 0 hln 100 PS=
+a 0 u 0 0 0 0 hln 100 NRD=
+a 0 u 0 0 0 0 hln 100 NRS=
+a 0 u 0 0 0 0 hln 100 NRG=
+a 0 u 0 0 0 0 hln 100 NRB=
+a 0 u 0 0 0 0 hln 100 M=
+a 0 sp 13 0 -12 40 hln 100 MODEL=PMOS5
+@pins
+p 0 10 20 hln 100 g n 0 20 h
+p 0 25 40 hln 100 d n 30 40 v
+a 0 s 1 0 31 38 hln 100 PIN=
+a 0 s 0:13 0 0 0 hln 100 ERC=x
+p 0 25 10 hln 100 s n 30 0 d
+a 0 s 0 0 38 39 hln 100 PIN=4
+a 0 s 0 0 40 40 hln 100 ERC=x
+@graphics 30 40 0 20 10
+v 0 28 12
+22 10
+28 8
+;
+v 0 15 10
+15 30
+;
+v 0 20 30
+30 30
+;
+v 0 20 10
+30 10
+;
+v 0 10 20
+15 20
+;
+v 0 20 10
+20 30
+;
+*symbol NMOS5
+d n-channel mosfet (enhancement) device
+@type p 9.1
+@attributes
+a 1 sp 0 0 0 0 hln 100 TEMPLATE=M^@REFDES %d %g %s %s @MODEL ?L/ \n+ L=@L/ ?W/ \n+ W=@W/ ?AD/ \n+ AD=@AD/ ?AS/ \n+ AS=@AS/ ?PD/ \n+ PD=@PD/ ?PS/ \n+ PS=@PS/ ?NRD/ \n+ NRD=@NRD/ ?NRS/ \n+ NRS=@NRS/ ?NRG/ \n+ NRG=@NRG/ ?NRB/ \n+ NRB=@NRB/ ?M/ \n+ M=@M/
+a 0 sp 9 0 5 10 hln 100 REFDES=M?
+a 0 u 0 0 0 0 hln 100 L=
+a 0 u 0 0 0 0 hln 100 W=
+a 0 u 0 0 0 0 hln 100 AD=
+a 0 u 0 0 0 0 hln 100 AS=
+a 0 u 0 0 0 0 hln 100 PD=
+a 0 u 0 0 0 0 hln 100 PS=
+a 0 u 0 0 0 0 hln 100 NRD=
+a 0 u 0 0 0 0 hln 100 NRS=
+a 0 u 0 0 0 0 hln 100 NRG=
+a 0 u 0 0 0 0 hln 100 NRB=
+a 0 u 0 0 0 0 hln 100 M=
+a 0 sp 13 0 -16 40 hln 100 MODEL=NMOS5
+@pins
+p 0 25 40 hln 100 s n 30 40 v
+p 0 10 20 hln 100 g n 0 20 h
+p 0 25 10 hln 100 d n 30 0 d
+a 0 s 0 0 38 39 hln 100 PIN=4
+a 0 s 0 0 40 40 hln 100 ERC=x
+@graphics 30 40 0 20 10
+v 0 22 28
+28 30
+22 32
+;
+v 0 15 10
+15 30
+;
+v 0 20 30
+30 30
+;
+v 0 20 10
+30 10
+;
+v 0 20 10
+20 30
+;
+v 0 10 20
+15 20
+;

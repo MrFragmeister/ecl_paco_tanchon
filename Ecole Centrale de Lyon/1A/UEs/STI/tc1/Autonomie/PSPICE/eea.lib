@@ -1,0 +1,157 @@
+* Sample standard device library
+*
+*  Copyright OrCAD, Inc. 1998 All Rights Reserved.
+* This is a reduced version of OrCAD's standard parts libraries. Some 
+* components from several types of component libraries have been included
+* here.  You are welcome to make as many copies of it as you find convenient.
+*
+* $Revision:   1.5  $
+* $Author:   RPEREZ  $
+* $Date:   20 Apr 1998 09:36:36  $
+*
+* ---------------------------------------------------------------------------
+*
+* The OrCAD library included with the production version of PSpice
+* includes over 10,000 analog devices, and over 1,800 digital devices.
+*
+*
+* It takes time for PSpice to scan a library file.  To speed this up, PSpice
+* creates an index file, called <filename>.IND. The index file is re-created
+* whenever PSpice senses that the library file has changed.
+*
+.lib "breakout.lib"             ; generic devices for OrCAD Capture
+
+* "regular" device libraries
+
+.lib "eval.lib"                 ; reduced version of OrCAD's standard 
+                                ; parts libraries. Some components from 
+                                ; each of several types of component 
+                                ; libraries have been included here.
+
+* end of library file
+
+.MODEL PMOS5 PMOS (
++ LEVEL  = 5
+*** Default W and L
++ W	 = 10u
++ L	 = 0.25u
+*** Process Related Model Parameters
++ COX    = 4.00E-3
+* for TOX = 9e-9
++ XJ     = 0.15E-6
+*** Intrinsic Model Parameters
++ VTO    = -0.55
++ GAMMA  = -0.5
++ PHI    = 0.8
++ KP     = 45.0E-6
++ E0     = 51.0E6
++ UCRIT  = 18.0E6
++ DL     = -0.09E-6
++ DW     = -0.03E-6
++ LAMBDA = 0.2
++ LETA   = 0.45
++ WETA   = 0.0
++ Q0     = 200E-6
++ LK     = 0.6E-6
+*** Substrate Current Parameters
++ IBN    = 1.0
++ IBA    = 0.0
++ IBB    = 300E6
+*** Intrinsic Model Temperature Parameters
++ TNOM   = 27.0
++ TCV    = -1.4E-3
++ BEX    = -1.4
++ UCEX   = 2.0
++ IBBT   = 0.0
+*** 1/f Noise Model Parameters
++ KF     = 1.0E-28
++ AF     = 1
+*+ GDSNOI = 1
+*** Short-Distance Matching Statistical Parameters (for MC simulation only)
++ AVTO   = DEV = 10.0E-9
++ AGAMMA = DEV = 10.0E-9
++ AKP    = DEV = 25.0E-9
+*** Series Resistance and Area Calulation Parameters
++ HDIF   = 0.9E-6
++ RSH    = 990
+*** Junction Current Parameters
++ JS     = 0.5E-8
++ JSW    = 7.0E-10
++ XTI    = 0
++ N      = 1.8
+*** Junction Capacitances Parameters
++ CJ     = 9.4E-4
++ CJSW   = 3.2E-10
++ MJ     = 0.5
++ MJSW   = 0.3
++ PB     = 0.9
++ PBSW   = 0.8
++ FC     = 0.5
+*** Gate Overlap Capacitances
++ CGSO   = 1.5E-10
++ CGDO   = 3.0E-10
++ CGBO   = 4.0E-10
+)
+
+.MODEL NMOS5 NMOS (
++ LEVEL  = 5
+*** Default W and L
++ W	 = 10u
++ L	 = 0.25u
+*** Process Related Model Parameters
++ COX    = 4.00E-3
+* for TOX = 9e-9
++ XJ     = 0.15E-6
+*** Intrinsic Model Parameters
++ VTO    = 0.4
++ GAMMA  = 0.5
++ PHI    = 0.7
++ KP     = 131E-6
++ E0     = 50.0E6
++ UCRIT  = 4.5E6
++ DL     = -0.08E-6
++ DW     = -0.02E-6
++ LAMBDA = 0.1
++ LETA   = 0.28
++ WETA   = 0.05
++ Q0     = 280E-6
++ LK     = 0.5E-6
+*** Substrate Current Parameters
++ IBN    = 1.0
++ IBA    = 200E6
++ IBB    = 350E6
+*** Intrinsic Model Temperature Parameters
++ TNOM   = 27.0
++ TCV    = 1.5E-3
++ BEX    = -1.5
++ UCEX   = 1.7
++ IBBT   = 0.0
+*** 1/f Noise Model Parameters
+ + KF     = 1E-27
++ AF     = 1
+*+ GDSNOI = 1
+*** Short-Distance Matching Statistical Parameters (for MC simulation only)
++ AVTO   = DEV = 15.0E-9
++ AGAMMA = DEV = 15.0E-9
++ AKP    = DEV = 25.0E-9
+*** Series Resistance and Area Calulation Parameters
++ HDIF   = 0.9E-6
++ RSH    = 510
+*** Junction Current Parameters
++ JS     = 1.0E-8
++ JSW    = 1.5E-10
++ XTI    = 0
++ N      = 1.5
+*** Junction Capacitances Parameters
++ CJ     = 5.6E-4
++ CJSW   = 3.5E-10
++ MJ     = 0.45
++ MJSW   = 0.2
++ PB     = 0.9
++ PBSW   = 0.5
++ FC     = 0.5
+*** Gate Overlap Capacitances
++ CGSO   = 1.5E-10
++ CGDO   = 4.0E-10
++ CGBO   = 4.0E-10
+)

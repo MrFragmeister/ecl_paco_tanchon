@@ -1,0 +1,65 @@
+*****************************************************************
+      SolidWorks Corporation - Compte-rendu d'état du Processeur IGES
+*****************************************************************
+=================================================================
+Informations générales
+=================================================================
+Envoi de l'identification du produit système en cours  : Part2
+Réception de l'identification du produit système en cours: Part2
+Nom de fichier                    : milieu_support_eleve.igs
+Envoi du système en cours               : DASSAULT SYSTEMES CATIA Version 5-6 Release 2017 - www.3ds.com
+Version du préprocesseur         : V5-6R2017_5.27.0.0.10-19-2016.20.00
+Date de création du fichier           : 20171130.165418
+Date de création du modèle          : 20171130.165418
+Unités                        : MM
+Echelle de l'espace modèle            : 1
+Auteur                       : Marine
+Organisation                 : PC-MARINE
+
+
+=================================================================
+Informations sur le traitement des entités
+=================================================================
+
+
+=================================================================
+Analyse de précision d'un fichier IGES:
+=================================================================
+  Nombre le plus répandu de chiffres significatifs:              10
+  Nombre le plus grand de chiffres significatifs:                     10
+  Nombre moyen de chiffres significatifs :                9.80591
+  Distance maximale jusqu'à l'origine:                          251.364
+  Distance minimale jusqu'à l'origine:                                0
+  Nombre effectif de chiffres significatifs:                   10
+
+
+=================================================================
+Récapitulatif des entités
+=================================================================
+-----------------------------------------------------------------
+Nom de type                                         Nombre converti
+---- ----                                         ----- ---------
+102  Composite curve                                 38        38
+110  Line                                            24        24
+116  Point                                           28        28
+118  Ruled surface                                   20        20
+126  Rational B-spline curve                        282       282
+128  Rational B-spline surface                        9         9
+142  Curve on a parametric surface                   29        29
+144  Trimmed parametric surface                      29        29
+406  Property                                        16        16
+_________________________________________________________________
+
+
+=================================================================
+Récapitulatif des résultats
+=================================================================
+Type de fonction SolidWorks                Nombre
+-----------------------                -----
+Fonction(s) volumique(s)                       0
+Fonction(s) surfacique(s)                     1
+Fonction(s) de courbe/d'esquisse                0
+--------------------------------------------
+Heure de début: jeudi, novembre 30, 2017 23:03:33
+Heure de fin: jeudi, novembre 30, 2017 23:03:35
+Durée de traitement: 0 days, 00 hours, 00 mins, 02 secs

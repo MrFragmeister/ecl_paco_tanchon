@@ -1,0 +1,9 @@
+* Schematics Netlist *
+
+
+
+V_V1         vds 0 2.5V
+V_V2         vgs 0 2V
+M_M2         vds vgs 0 0 NMOS5  
++ L=0.25um  
++ W=1um         

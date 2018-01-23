@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+body {
+  background: linear-gradient(0deg, white, blue);
+  margin: 0;
+  padding: 0px;
+  min-height: calc(100vh);
+  font-family: Arial;
+  letter-spacing: 0.1em;
+}
+h1 {
+  text-align: center;
+  background: linear-gradient(90deg,
+    rgba(255,255,255,0),
+    rgba(255,255,255,0.6),
+    rgba(255,255,255,0)
+  );
+  color: white;
+  font-weight: normal;
+  padding: 5px;
+  text-shadow: 1px 1px white;
+}
+h1::before {
+  display: block;
+  height: 3px;
+  background: linear-gradient(90deg,
+    rgba(255,255,255,0.4),
+    rgba(255,255,255,1.0),
+    rgba(255,255,255,0.4)
+  );
+  content: "";
+  position: relative;
+  top: -5px;
+}
+#scene_list {
+  position: relative;
+  width: 200px;
+  margin-top: 10px;
+  border: 1px inset;
+  margin-left: -40px;
+}
+img {
+  margin-left: 556px;
+  border: 3px solid #444;
+  display: block;
+  width: 400px;
+  height: 300px;
+  background-color: #222;
+}
+input {
+  width:250px;
+  position: relative;
+  top: 5px;
+}
+span.label {
+  display: inline-block;
+  width: 4em;
+}
+#controlbox {
+  text-align: center;
+  position: relative;
+  background-color: grey;
+  margin: auto;
+  display: block;
+  width: 400px;
+  border: 3px outset;
+  padding-bottom: 10px;
+  float: right;
+  margin-right: 150px;
+}
+
+#scenes {
+  text-align: center;
+  background-color: grey;
+  margin: auto;
+  display: block;
+  width: 400px;
+  height: 50px;
+  border: 3px outset;
+  position: relative;
+  float: top;
+}
+
+#bouton {
+  width: 70px;
+  height: 22px;
+  float: right;
+  margin-top: -25px;
+  margin-right: 20px;
+
+}
+
+#scene_affich {
+  margin-top: 20px;
+}
+
+#bouton2 {
+  width: 70px;
+  height: 22px;
+  float: right;
+  margin-right: 20px;
+  margin-top: -25px;
+}
+
+h4 {
+  margin-left: -70px;
+}
+</style>
+
+<title>Affichage formes +</title>
+<h1 id="banner">Affichage formes</h1>
+
+<div id="scenes">
+  <select id="scene_affich">
+  <option value="1">Scene1</option>
+  <option value="2">Scene2</option>
+  </select><div id="bouton_afficher"><input type="button" id="bouton2" value="Afficher" href=""/></div>
+</div>
+
+<div id = "controlbox">
+  <input type="range" id="anglex" min="0" max="360" step="1"> 
+  <span class="label">Orientation (x)</span><br>
+  <input type="range" id="angley" min="0" max="360" step="1"> 
+  <span class="label">Orientation (y)</span><br>
+  <input type="range" id="anglez" min="0" max="360" step="1"> 
+  <span class="label">Orientation (z)</span><br>
+  <h4>Position:</h4>
+  <input type="number" id="posx" min="0" max="300"/>
+  <span class="label">x</span><span id="posx_value"></span><br>
+  <input type="number" id="posy" min="0" max="300"/>
+  <span class="label">y</span><span id="posy_value"></span><br>
+  <input type="number" id="posz" min="0" max="300"/>
+  <span class="label">z</span><span id="posz_value"></span><br>
+</div>
+<img id="image2">
+<div id="scenes">
+<input type="range" id="taille" min="0" max="2" step="0.1"> 
+  <span class="label">Taille</span><br>
+</div>
+<div id="scenes">
+  <select id="scene_list">
+  <option value="1">Cube</option>
+  <option value="2">Cylindre</option>
+  <option value="3">C&ocirc;ne tronqu&eacute;</option>
+  <option value="4">Pyramide</option>
+  <option value="5">Maison</option>
+  <option value="6">Arbre</option>
+  <option value="7">Sapin</option>
+  </select><div id="bouton_ajouter"><input type="button" id="bouton" value="Ajouter" onclick="ajouter()" /></div><br>
+</div>
+<script>
+  /*
+  ** Mise à jour de l'image et des contrôles sur réception d'une scène   | A FAIRE: creer un bloc à droite pour mettre les boutons des différents objets (Js)
+  */
+  var update_image = function() {
+    data = JSON.parse(this.responseText);
+    scene = JSON.parse(data.serial);
+
+    // mise à jour de l'image
+    image2.src = localhost + data.url + "?" + Math.random();
+
+    // mise à jour des valeurs affichées
+    rin_value.innerHTML = rin.value = scene.sources[0].color.r.toFixed(2);
+    gin_value.innerHTML = gin.value = scene.sources[0].color.g.toFixed(2);
+    bin_value.innerHTML = bin.value = scene.sources[0].color.b.toFixed(2);
+  }
+
+
+  ajouter = function(){
+    window.open('pro.html','test',menubar=no, scrollbars=no, top=100, left=100, width=300, height=200)
+  }
+
+
+
+  /*
+  ** Récupération de la liste des scènes
+  */
+  var scenes = {};
+  var localhost = "http://localhost:8080";
+  var r = new XMLHttpRequest();
+  r.onload = function() {
+    data = JSON.parse(this.responseText);
+
+    // mise en place des données locales (liste de scènes)
+    for ( n=0; n < data.length; n++ ) {
+       scene = JSON.parse(data[n].serial)
+       console.log(n,scene);
+       if ( n == 0 ) current_scene = scene.name
+       scenes[scene.name] = { url: data[n].url, name: data[n].name, info: scene };
+    }
+
+    // alimentation de la liste des choix
+    for ( name in scenes ) {
+      option = document.createElement('option');
+      option.value = option.textContent = name
+      scene_list.appendChild(option);
+    }
+
+    // mise à jour de la scène
+    change_scene();
+  }
+  r.open("GET",localhost + "/service/scene",true);
+  r.send();
+
+
+  /*
+  ** Gestionnaire d'événement pour choix d'une scène
+  */
+  scene_list.onchange = function() {
+    current_scene = this.value;
+    change_scene();
+  }
+  change_scene = function () {
+    var r = new XMLHttpRequest();
+    r.onload = update_image;
+    r.open("GET",localhost + "/service/scene/" + current_scene,true);
+    r.send();
+  }
+
+
+  /*
+  ** Gestionnaires d'événement pour modification d'une composante de couleur
+  */
+  rin.onchange = bin.onchange = gin.onchange = function() {
+    scene = scenes[current_scene].info;
+
+    // récupération de la valeur des trois actionneurs
+    scene.sources[0].color.r = parseFloat(rin.value);
+    scene.sources[0].color.g = parseFloat(gin.value);
+    scene.sources[0].color.b = parseFloat(bin.value);
+
+    // requête de mise à jour de la scène
+    var body = JSON.stringify({operation: "update", serial:JSON.stringify(scene)});
+    var r = new XMLHttpRequest();
+    r.onload = update_image;
+    r.open("POST",localhost + "/service/scene/" + current_scene,true);
+    r.send(body);
+
+
+    /*
+  ** Gestionnaire d'événement pour choix d'une scène
+  */
+  scene_list.onchange = function() {
+    current_scene = this.value;
+    change_scene();
+  }
+  change_scene = function () {
+    var r = new XMLHttpRequest();
+    r.onload = update_image;
+    r.open("GET",localhost + "/service/scene/" + current_scene,true);
+    r.send();
+  }
+  /*
+  ** Gestionnaires d'événement pour modification d'une composante de position
+  */ 
+    posx.onchange = posy.onchange = posz.onchange= function() {
+    scene = scenes[current_scene].info;
+
+    // récupération de la valeur des trois actionneurs 
+    scene.objects[0].center.x = parseInt(posx.value);
+    scene.objects[0].center.y = parseInt(posy.value);
+    scene.objects[0].center.z = parseInt(posz.value);
+   
+    // requête de mise à jour de la scène
+    var body = JSON.stringify({operation: "update", serial:JSON.stringify(scene)});
+    var r = new XMLHttpRequest();
+    r.onload = update_image;
+    r.open("POST",localhost + "/service/scene/" + current_scene,true);
+    r.send(body);
+  }
+ 
+  /*
+  ** Gestionnaires d'événement pour modification d'une composante d'orientation
+  */
+    anglex.onchange = angley.onchange = anglez.onchange = function() {
+    scene = scenes[current_scene].info;
+
+    // récupération de la valeur des trois actionneurs
+    scene.objects[0].center.x = parseFloat(Math.sin(anglez.value)*Math.cos(anglex.value));
+    scene.objects[0].center.y = parseFloat(Math.sin(anglez.value)*Math.sin(anglex.value));
+    scene.objects[0].center.z = parseFloat(Math.cos(anglez.value));
+      
+    // requête de mise à jour de la scène
+    var body = JSON.stringify({operation: "update", serial:JSON.stringify(scene)});
+    var r = new XMLHttpRequest();
+    r.onload = update_image;
+    r.open("POST",localhost + "/service/scene/" + current_scene,true);
+    r.send(body);
+  }
+ 
+  /*
+  ** Gestionnaires d'événement pour modification de la taille
+  */
+    taille.onchange = function() {
+    scene = scenes[current_scene].info;
+
+    // récupération de la valeur 
+    scene.weight = parseFloat(400*taille.value);
+    scene.height = parseFloat(300*taille.value);
+      
+    // requête de mise à jour de la scène
+    var body = JSON.stringify({operation: "update", serial:JSON.stringify(scene)});
+    var r = new XMLHttpRequest();
+    r.onload = update_image;
+    r.open("POST",localhost + "/service/scene/" + current_scene,true);
+    r.send(body);
+  }
+  
+  /*
+  ** Gestionnaire d'événement pour ajout d'un objet
+  */
+    objet_list.onchange = function() {
+    current_objet = this.value;
+        
+    // Objet 
+    var c = {"_class_":"vec3","x":0,"y":0,"z":0}, v = {"_class_":"vec3","x":0,"y":2,"z":0.7071067811865476},u ={"_class_":"vec3","x":0.5000000000000001,"y":2,"z":-0.5000000000000001},ob;
+      
+    if (current_objet == "1"){
+        ob = {"_class_":"Cube","center":c,"U":u,"V":v,"width":0.4,"diffuse":[{"_class_":"rgb","r":0.5,"g":0,"b":0.5},{"_class_":"rgb","r":0.5,"g":0.5,"b":0},{"_class_":"rgb","r":0,"g":0.5,"b":0.5},{"_class_":"rgb","r":0.75,"g":0,"b":0},{"_class_":"rgb","r":0,"g":0.75,"b":0},{"_class_":"rgb","r":0,"g":0,"b":0.75}],"ambient":[{"_class_":"rgb","r":1,"g":1,"b":1},{"_class_":"rgb","r":1,"g":1,"b":1},{"_class_":"rgb","r":1,"g":1,"b":1},{"_class_":"rgb","r":1,"g":1,"b":1},{"_class_":"rgb","r":1,"g":1,"b":1},{"_class_":"rgb","r":1,"g":1,"b":1}],"specular":[{"_class_":"rgb","r":0.5,"g":0.5,"b":0.5},{"_class_":"rgb","r":0.5,"g":0.5,"b":0.5},{"_class_":"rgb","r":0.5,"g":0.5,"b":0.5},{"_class_":"rgb","r":0.5,"g":0.5,"b":0.5},{"_class_":"rgb","r":0.5,"g":0.5,"b":0.5},{"_class_":"rgb","r":0.5,"g":0.5,"b":0.5}],"phong":[140,140,140,140,140,140],"mirror":[{"_class_":"rgb","r":0.3,"g":0.3,"b":0.3},{"_class_":"rgb","r":0.3,"g":0.3,"b":0.3},{"_class_":"rgb","r":0.3,"g":0.3,"b":0.3},{"_class_":"rgb","r":0.3,"g":0.3,"b":0.3},{"_class_":"rgb","r":0.3,"g":0.3,"b":0.3},{"_class_":"rgb","r":0.3,"g":0.3,"b":0.3}]}}
+    if (current_objet == "2"){
+        ob = {"_class_": "Cylinder", "position": {"_class_": "vec3", "x": 1, "y": 2, "z": 3}, "axis": {"_class_": "vec3", "x": 1.0, "y": 0.0, "z": 0.0}, "radius": 0.4, "length": 1, "diffuse": [{"_class_": "rgb", "r": 0.5, "g": 0.5, "b": 0.5}, {"_class_": "rgb", "r": 0.5, "g": 0.5, "b": 0.5}, {"_class_": "rgb", "r": 0.5, "g": 0.5, "b": 0.5}], "ambient": [{"_class_": "rgb", "r": 1.0, "g": 1.0, "b": 1.0}, {"_class_": "rgb", "r": 1.0, "g": 1.0, "b": 1.0}, {"_class_": "rgb", "r": 1.0, "g": 1.0, "b": 1.0}], "specular": [{"_class_": "rgb", "r": 0.5, "g": 0.5, "b": 0.5}, {"_class_": "rgb", "r": 0.5, "g": 0.5, "b": 0.5}, {"_class_": "rgb", "r": 0.5, "g": 0.5, "b": 0.5}], "phong": [70, 70, 70], "mirror": [{"_class_": "rgb", "r": 0.5, "g": 0.5, "b": 0.5}, {"_class_": "rgb", "r": 0.5, "g": 0.5, "b": 0.5}, {"_class_": "rgb", "r": 0.5, "g": 0.5, "b": 0.5}]};}
+    if (current_objet == "3"){
+        ob = {"_class_": "ConeTrunk", "position": {"_class_": "vec3", "x": 0, "y": 0, "z": 0}, "axis": {"_class_": "vec3", "x": 0.7071067811865475, "y": 0.0, "z": 0.7071067811865475}, "lambda": 0.4, "ends": [0, 0.9], "diffuse": {"_class_": "rgb", "r": 0.5, "g": 0.5, "b": 0.5}, "ambient": {"_class_": "rgb", "r": 1.0, "g": 1.0, "b": 1.0}, "specular": {"_class_": "rgb", "r": 0.5, "g": 0.5, "b": 0.5}, "phong": 70, "mirror": {"_class_": "rgb", "r": 0.5, "g": 0.5, "b": 0.5}};}
+    if (current_objet == "4"){
+        ob = {"_class_": "Sphere", "center": c, "radius": 6, "diffuse": {"_class_": "rgb", "r": 1, "g": 1.04, "b": 2}, "ambient": {"_class_": "rgb", "r": 1.0, "g": 1.0, "b": 1.0}, "specular": {"_class_": "rgb", "r": 0.5, "g": 0.5, "b": 0.5}, "phong": 70, "mirror": {"_class_": "rgb", "r": 0.5, "g": 0.5, "b": 0.5}};}
+    if (current_objet == "5"){
+        ob = {"_class_": "Disk", "position": {"_class_": "vec3", "x": 0, "y": 0, "z": 0}, "normal": {"_class_": "vec3", "x": 1.0, "y": 0.0, "z": 0.0}, "radius": 0.4, "diffuse": {"_class_": "rgb", "r": 0.5, "g": 0.5, "b": 0.5}, "ambient": {"_class_": "rgb", "r": 1.0, "g": 1.0, "b": 1.0}, "specular": {"_class_": "rgb", "r": 0.5, "g": 0.5, "b": 0.5}, "phong": 70, "mirror": {"_class_": "rgb", "r": 0.5, "g": 0.5, "b": 0.5}};}
+    //if (current_objet == "6"){
+      //  p = Polygon([[0,0],[0,0.5],[0.5,0],[0.5,0.5]], c, U, V,1);
+       // ob = Pyramide(p,c);}
+    if (current_objet == "7"){
+        ob ={"_class_":"Maison", "C":c, "largeur" : 0.7, "V" : V, "diffuse" : {"_class_" : "rgb", "r" : 0.25, "g" : 0.41, "b" : 0.88}, "specular":{"_class_" : "rgb", "r" : 0.5, "g" : 0.5, "b" : 0}, "mirror" : {"_class_" : "rgb", "r" : 0, "g" : 0, "b" : 0};}
+    if (current_objet == "8"){
+        ob ={"_class_" : "Arbre", "position" : P, "axe" : v , "rayon" : 0.3};}
+    if (current_objet == "9"){
+        ob = {"_class_" : "Sapin", "Pc" : P, "axe" : V, "k" : 0.5};}
+    
+    alert(JSON.stringify(ob));
+    // requête de mise à jour de la scène
+    var body = JSON.stringify({operation: "update", serial:JSON.stringify(scene) ,objet:JSON.stringify(ob)});
+    var r = new XMLHttpRequest();
+    r.onload = update_image;
+    r.open("POST",localhost + "/service/scene/" + current_scene,true);
+    r.send(body);  
+  }
+</script>
