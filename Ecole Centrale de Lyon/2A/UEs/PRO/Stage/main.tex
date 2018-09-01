@@ -1,0 +1,188 @@
+%	 ______                           ___             __             
+%	/\__  _\                         /\_ \           /\ \__          
+%	\/_/\ \/    __    ___ ___   _____\//\ \      __  \ \ ,_\    __   
+%	   \ \ \  /'__`\/' __` __`\/\ '__`\\ \ \   /'__`\ \ \ \/  /'__`\ 
+%	    \ \ \/\  __//\ \/\ \/\ \ \ \_\ \\_\ \_/\ \_\.\_\ \ \_/\  __/ 
+%	     \ \_\ \____\ \_\ \_\ \_\ \ ,__//\____\ \__/.\_\\ \__\ \____\
+%	      \/_/\/____/\/_/\/_/\/_/\ \ \/ \/____/\/__/\/_/ \/__/\/____/
+%	                              \ \_\                              
+%	                               \/_/     
+%			 __              ______         __   __     
+%			/\ \            /\__  _\       /\ \ /\ \    
+%			\ \ \         __\/_/\ \/    __ \ `\`\/'/'   
+%			 \ \ \  __  /'__`\ \ \ \  /'__`\`\/ > <     
+%			  \ \ \_\ \/\ \_\.\_\ \ \/\  __/   \/'/\`\  
+%			   \ \____/\ \__/.\_\\ \_\ \____\  /\_\\ \_\
+%			    \/___/  \/__/\/_/ \/_/\/____/  \/_/ \/_/
+%			                                            
+%			 ____                            __  __    ____    
+%			/\  _`\                         /\ \/\ \  /'___\   
+%			\ \ \_\ \___     ___      __    \ \ \ \ \/\ \__/   
+%			 \ \ ,__/ __`\ /' _ `\  /'_ `\   \ \ \ \ \ \  _``\ 
+%			  \ \ \/\ \_\ \/\ \/\ \/\ \_\ \   \ \ \_\ \ \ \_\ \
+%			   \ \_\ \____/\ \_\ \_\ \____ \   \ \_____\ \____/
+%			    \/_/\/___/  \/_/\/_/\/____\ \   \/_____/\/___/ 
+%			                          /\____/                  
+%			                          \_/__/                   
+
+
+%                         =====================
+%                          PARTIE PRÉ-DOCUMENT
+%                         =====================
+% _______________________________________________________________ %
+
+% Préparation du terrain : taille du papier et des caractères
+\documentclass[a4paper,12pt] {report}
+
+%       PACKAGES
+% _______________________________________________________________ %
+
+% Format d'entrée UTF-8
+\usepackage[utf8]{inputenc}
+
+% Taille des marges
+\usepackage[left=2cm,right=2cm,top=4cm,bottom=4cm]{geometry}
+
+% Pour les "include" de fichiers vectorisés (ex: .eps -> .pdf)
+\usepackage{epstopdf}
+
+% Pour les couleurs personnalisées
+\usepackage{color}
+
+% Pour la personnalisation des titres
+\usepackage{titlesec}
+\usepackage{titleps}
+
+% Pour la personnalisation des arrières-plan
+\usepackage{eso-pic}
+
+% Pour la prise en charge des "includegraphics{*.pdf}"
+\usepackage{graphicx}
+
+% Pour l'alignement des figures particulières
+\usepackage[export]{adjustbox}
+
+% Pour les figures exportés d'Inkscape, précisions des chemins d'images
+\usepackage{import}
+
+% Pour les liens hypertexte
+\usepackage{hyperref}
+ 
+% Pour la bibliographie
+\usepackage[backend=biber,bibencoding=utf8]{biblatex}
+\usepackage[french=guillemets]{csquotes}
+\addbibresource{bibli.bib}
+
+% Packages de langues : français
+\usepackage[francais]{babel}
+
+%Packages pour remplissage random
+\usepackage{lipsum}
+
+%       PRÉPARATION DES COMMANDES
+% _______________________________________________________________ %
+
+% Couleur de l'ECL & application aux titres de section.
+\definecolor{recl}{RGB}{190,30,45}
+\titleformat*{\section}{\normalfont\Large\bfseries\color{recl}}
+
+% Définition de l'arrière-plan de la page de garde
+\newcommand\BackgroundPic{%
+\put(0,0){%
+\parbox[b][\paperheight]{\paperwidth}{%
+\includegraphics[width=.7\paperwidth]{IMG-PageDeGarde/Angle_ecl.pdf}%
+\vfill
+\includegraphics[origin=c, width=.7\paperwidth, angle=180, right]{IMG-PageDeGarde/Angle_ecl.pdf}
+}}}
+
+% Définition des entêtes et pieds de page:
+% Page sans titre
+\newpagestyle{reportstyle}{
+  \setheadrule{.4pt}% Header rule
+  \sethead[\textit{\chaptertitle}]% even left
+    []% even centre
+    [\thepage]% even right
+    {\textit{\chaptertitle}}% odd left
+    {}% odd centre
+    {\thepage}% odd right
+}
+% Page avec titre
+\renewpagestyle{plain}{
+  \setheadrule{0pt}% Header rule
+  \sethead[]% even left
+    []% even centre
+    [\thepage]% even right
+    {}% odd left
+    {}% odd centre
+    {\thepage}% odd right
+}
+% Application du style d'entête et pied de page
+\pagestyle{reportstyle}
+
+% Édition de l'entête des chapitre : "Partie n"
+\addto\captionsfrench{\renewcommand{\chaptername}{Partie}}
+
+% Configuration de l'apprence des liens hypertextes
+\hypersetup{colorlinks,citecolor=black,filecolor=black,linkcolor=black,urlcolor=black}
+
+
+%                               ==========
+%                                DOCUMENT
+%                               ==========
+% _______________________________________________________________ %
+
+\begin{document}
+
+%       PAGE DE GARDE
+% _______________________________________________________________ %
+\begin{titlepage}
+
+% Utilisation de l'arrière-plan
+\AddToShipoutPicture*{\BackgroundPic}
+
+\centering
+
+\vspace*{3cm}
+
+\includegraphics[scale=0.13]{IMG-PageDeGarde/logo_ecl.jpg}
+
+\vspace{3.5cm}
+
+\begin{center}
+\Huge \textbf{TITRE}\\
+\vspace{1cm}
+\LARGE Sous-titre\\
+\Large SX - AAA tc Y \\
+\end{center}
+ 
+\vspace{4cm}
+ 
+\noindent
+Prénom \textsc{Nom}\\
+\vspace{0.5cm}
+\noindent
+\textbf{Mois 201X}\\
+
+\end{titlepage}
+
+%       TABLE DES MATIÈRES
+% _______________________________________________________________ %
+\tableofcontents
+
+%       INTRODUCTION
+% _______________________________________________________________ %
+\chapter*{Introduction}
+\addcontentsline{toc}{chapter}{Introduction}
+
+\lipsum[1-3]
+
+%       TITRE PARTIE 1
+% _______________________________________________________________ %
+\chapter{Titre partie 1}
+
+
+%       BIBLIOGRAPHIE
+% _______________________________________________________________ %
+\printbibliography
+
+\end{document}
