@@ -86,7 +86,7 @@ class BalleMobile:
                         
                         if balle_vx*self.__horzspeed<0:
                             invx=True
-                        if balle_vy*self.__vertspeed<0
+                        if balle_vy*self.__vertspeed<0:
                             invy=True
                             
                         balle.setSpeedQtt(PX/2,PY/2,invx,invy)
